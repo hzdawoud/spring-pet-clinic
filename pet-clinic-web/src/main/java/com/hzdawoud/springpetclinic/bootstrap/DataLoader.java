@@ -4,8 +4,6 @@ import com.hzdawoud.springpetclinic.model.Owner;
 import com.hzdawoud.springpetclinic.model.Vet;
 import com.hzdawoud.springpetclinic.service.OwnerService;
 import com.hzdawoud.springpetclinic.service.VetService;
-import com.hzdawoud.springpetclinic.service.map.OwnerServiceMap;
-import com.hzdawoud.springpetclinic.service.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +13,11 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,14 +26,15 @@ public class DataLoader implements CommandLineRunner {
         owner1.setFirstName("hazem");
         owner1.setLastName("dawoud");
 
-        ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner1.setId(2L);
-        owner1.setFirstName("david");
-        owner1.setLastName("ahmed");
+        owner2.setId(2L);
+        owner2.setFirstName("david");
+        owner2.setLastName("ahmed");
 
         ownerService.save(owner1);
+        ownerService.save(owner2);
+
 
         System.out.println("Loaded Owners...");
 
@@ -46,9 +46,9 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet1.setId(2L);
-        vet1.setFirstName("wp");
-        vet1.setLastName("gg");
+        vet2.setId(2L);
+        vet2.setFirstName("wp");
+        vet2.setLastName("gg");
 
         vetService.save(vet2);
 
