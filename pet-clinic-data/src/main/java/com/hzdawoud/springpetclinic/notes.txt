@@ -1,4 +1,0 @@
-Spring JPA: Data Access Abstraction, it's just an abstraction used to significantly reduce the amount of boilerplate code
-required to implement data access layers for various persistence stores.
-
-Hibernate: provides a reference implementation of the JPA, to make a mapping between the object and its table (ORM)
