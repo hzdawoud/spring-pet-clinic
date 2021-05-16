@@ -70,6 +70,8 @@ public class DataLoader implements CommandLineRunner {
         pet1.setName("Roso");
         owner1.getPets().add(pet1);
 
+        Owner.builder().address("deafult").build();
+
         Owner owner2 = new Owner();
         owner2.setFirstName("david");
         owner2.setLastName("ahmed");
